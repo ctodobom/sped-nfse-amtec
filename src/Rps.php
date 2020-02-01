@@ -7,12 +7,12 @@ namespace NFePHP\NFSeAmtec;
  *
  * @category  NFePHP
  * @package   NFePHP\NFSeAmtec
- * @copyright NFePHP Copyright (c) 2008-2019
+ * @copyright NFePHP Copyright (c) 2020
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
  * @license   https://opensource.org/licenses/MIT MIT
  * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
  * @author    Roberto L. Machado <linux.rlm at gmail dot com>
- * @link      http://github.com/nfephp-org/sped-nfse-nacional for the canonical source repository
+ * @link      http://github.com/nfephp-org/sped-nfse-amtec for the canonical source repository
  */
 
 use stdClass;
@@ -35,6 +35,10 @@ class Rps implements RpsInterface
      * @var string
      */
     protected $jsonschema;
+    /**
+     * @var \stdClass
+     */
+    protected $config;
     
     /**
      * Constructor
@@ -46,6 +50,16 @@ class Rps implements RpsInterface
     }
     
     /**
+     * Add config
+     * @param stdClass $config
+     */
+    public function config(\stdClass $config)
+    {
+        $this->config = $config;
+    }
+
+    
+    /**
      * Convert Rps::class data in XML
      * @param stdClass $rps
      * @return string
@@ -54,6 +68,9 @@ class Rps implements RpsInterface
     {
         $this->init($rps);
         $fac = new Factory($this->std);
+        if (!empty($this->config)) {
+            $fac->addConfig($this->config);
+        }
         return $fac->render();
     }
     
@@ -65,6 +82,9 @@ class Rps implements RpsInterface
     {
         if (!empty($rps)) {
             $this->std = $this->propertiesToLower($rps);
+            if (empty($rps->version)) {
+                $rps->version = '2.00';
+            }
             $ver = str_replace('.', '_', $rps->version);
             $this->jsonschema = realpath(__DIR__ . "/../storage/jsonSchemes/v$ver/rps.schema");
             $this->validInputData($this->std);

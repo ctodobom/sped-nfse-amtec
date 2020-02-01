@@ -1,0 +1,11 @@
+{
+    "5208707": {
+        "municipio": "Goiania",
+        "uf": "GO",
+        "homologacao": "https://nfse.goiania.go.gov.br/ws/nfse.asmx",
+        "producao": "https://nfse.goiania.go.gov.br/ws/nfse.asmx",
+        "version": "2.00",
+        "msgns": "http://nfse.goiania.go.gov.br/xsd/nfse_gyn_v02.xsd",
+        "soapns": "http://nfse.goiania.go.gov.br/ws/"
+    }
+}

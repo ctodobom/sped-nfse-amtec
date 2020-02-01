@@ -33,6 +33,92 @@ Este pacote é aderente com os [PSR-1], [PSR-2] e [PSR-4]. Se você observar neg
 
 Não deixe de se cadastrar no [grupo de discussão do NFePHP](http://groups.google.com/group/nfephp) para acompanhar o desenvolvimento e participar das discussões e tirar duvidas!
 
+## Informações sobre as operações
+
+> NOTA: essas operações requerem acesso direto a prefitura e devem ser executadas presencialmente.
+
+### AUTORIZAÇÃO DE NOTA FISCAL ELETRÔNICA
+ 
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+- Anexar Requerimento (com firma reconhecida) solicitando autorização para emissão de Nota Fiscal Eletrônica, assinado pelo responsável da empresa ou procurador.
+- Anexar Cópias simples do RG e CPF do sócio responsável perante a prefeitura e do procurador (se for o caso).
+- Anexar Cópias simples da Procuração (com firma reconhecida), com poderes específicos para solicitação de autorização para emissão de Nota Fiscal Eletrônica (se for o caso).
+- Anexar Cópias simples do CAE da empresa atualizado.
+- Anexar Cópias simples do CNPJ da empresa.
+- Anexar Cópias autenticada do Contrato social primitivo e última alteração.
+ 
+
+### AUTORIZAÇÃO DE NOTA FISCAL AVULSA
+ 
+- Informar Inscrição municipal (CAE Eventual)
+- Informar Telefone para contato
+
+*Para pessoa física*
+
+- Anexar Requerimento disponibilizado no site da prefeitura de Goiânia na internet (clique aqui), preenchido e assinado pelo requerente ou procurador (com firma reconhecida), solicitando autorização para a emissão de Nota Fiscal Avulsa.
+- Anexar Cópia simples da Procuração (com firma reconhecida) especificando poderes ao procurador para requerer o acesso ao sistema da Nota Fiscal Avulsa, inclusive para cadastrar a senha de acesso e/ou gerenciamento (se for o caso).
+- Anexar Cópia simples do RG e CPF do requerente e do procurador (se for o caso).
+- Anexar Cópia simples do Comprovante de endereço.
+
+*Para pessoa jurídica*
+
+- Anexar Requerimento disponibilizado no site da prefeitura de Goiânia na internet (clique aqui), preenchido e assinado pelo responsável pela empresa ou procurador (com firma reconhecida) solicitando autorização para a emissão de Nota Fiscal Avulsa.
+- Anexar Cópia simples da Procuração (com firma reconhecida) especificando poderes ao procurador para requerer o acesso ao sistema da Nota Fiscal Avulsa, inclusive para cadastrar a senha de acesso e/ou gerenciamento (se for o caso).
+- Anexar Cópia simples do RG e CPF do responsável pela empresa e do procurador (se for o caso).
+- Anexar Cópia simples do Contrato social e das alterações contratuais (se houver).
+- Anexar Cópia simples do CNPJ da empresa.
+ 
+
+### AUTORIZAÇÃO NOTA FISCAL ESPECIAL
+ 
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+- Anexar Requerimento informando o motivo pelo qual está solicitando o uso da nota em regime especial (fazer em duas vias, dirigida a coordenadoria de receitas diversas).
+- Anexar Modelo (layout) da nota fiscal a ser autorizada.
+- Anexar Cópia do Contrato Social e última alteração (caso houver).
+- Anexar Cópia do CAE da empresa atualizado.
+- Anexar Cópia do RG E CPF do sócio responsável.
+ 
+### ALTERAÇÃO DE NOTA FISCAL ELETRÔNICA
+ 
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+- Anexar Requerimento solicitando alteração de Nota Fiscal Eletrônica, informando: o motivo da alteração, o período da emissão (mês/ano), o número e dados da nota a ser alterada, assinado pelo representante legal ou procurador;
+- Anexar Cópia simples da Nota Fiscal Eletrônica a ser alterada.
+- Anexar Cópia simples do RG e CPF do sócio responsável perante a prefeitura e do procurador (se for o caso).
+- Anexar Cópia simples da Procuração (com firma reconhecida), com poderes específicos para solicitação de alteração de Nota Fiscal Eletrônica (se for o caso).
+ 
+### CANCELAMENTO DE NOTA FISCAL ELETRÔNICA
+ 
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+
+*Para cancelamento por duplicidade*
+
+- Anexar Requerimento próprio com preenchimento de todos os campos(clique aqui), assinado pelo responsável.
+- Anexar Cópia simples de todas as notas fiscais citadas no requerimento.
+
+*Para cancelamento por não execução do serviço*
+
+- Anexar Requerimento próprio com preenchimento de todos os campos (clique aqui), assinado pelo responsável.
+- Anexar Declaração de não execução do serviço assinado pelo tomador (clique aqui), com assinatura reconhecida em cartório.
+- Anexar Cópia simples de todas as notas fiscais citadas no requerimento.
+ 
+### NOTA FISCAL VENCIDA / SEM LIBERAÇÃO
+ 
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+- Anexar Requerimento com todos os dados da empresa, informando o motivo da solicitação, o número e a sequência das notas, e número da AIDF – Autorização para Impressão de Documentos Fiscais.
+ 
+### PRORROGAÇÃO DE NOTA FISCAL
+
+- Informar Inscrição municipal (CAE)
+- Informar Telefone para contato
+- Anexar Requerimento informando nome da empresa, CAE, CNPJ, endereço, ano da mesma, número e sequência das notas a serem utilizadas, e o número da Autorização para Impressão de Documentos Fiscais – AIDF
+- Anexar Cópia simples da Última nota fiscal emitida.
+- Anexar Cópia simples do RG, CPF do sócio responsável perante a prefeitura.
+- Anexar Cópia simples do Contrato social e última alteração contratual (caso houver).
 
 
 ## Instalação 

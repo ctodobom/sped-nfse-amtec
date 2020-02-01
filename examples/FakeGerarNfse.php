@@ -91,9 +91,9 @@ try {
     $lote = 1;
 
     $response = $tools->gerarNfse($rps, $lote);
-    //header('Content-Type: application/xml; charset=utf-8');
-    //echo $response;
+    
     echo FakePretty::prettyPrint($response, '');
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
