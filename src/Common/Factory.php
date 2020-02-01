@@ -7,12 +7,12 @@ namespace NFePHP\NFSeAmtec\Common;
  *
  * @category  NFePHP
  * @package   NFePHP\NFSeAmtec
- * @copyright NFePHP Copyright (c) 2008-2018
+ * @copyright NFePHP Copyright (c) 2020
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
  * @license   https://opensource.org/licenses/MIT MIT
  * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
  * @author    Roberto L. Machado <linux.rlm at gmail dot com>
- * @link      http://github.com/nfephp-org/sped-nfse-nacional for the canonical source repository
+ * @link      http://github.com/nfephp-org/sped-nfse-amtec for the canonical source repository
  */
 
 use stdClass;
@@ -34,6 +34,14 @@ class Factory
      * @var DOMNode
      */
     protected $rps;
+    /**
+     * @var \stdClass
+     */
+    protected $config;
+    /**
+     * @var string
+     */
+    protected $msgns = 'http://nfse.goiania.go.gov.br/xsd/nfse_gyn_v02.xsd';
 
     /**
      * Constructor
@@ -50,6 +58,15 @@ class Factory
     }
     
     /**
+     * Add config
+     * @param \stdClass $config
+     */
+    public function addConfig($config)
+    {
+        $this->config = $config;
+    }
+    
+    /**
      * Builder, converts sdtClass Rps in XML Rps
      * NOTE: without Prestador Tag
      * @return string RPS in XML string format
@@ -58,12 +75,12 @@ class Factory
     {
         $infRps = $this->dom->createElement('InfDeclaracaoPrestacaoServico');
         $att = $this->dom->createAttribute('xmlns');
-        $att->value = 'http://nfse.goiania.go.gov.br/xsd/nfse_gyn_v02.xsd';
+        $att->value = $this->msgns;
         $infRps->appendChild($att);
         
         $innerRPS = $this->dom->createElement('Rps');
         $att = $this->dom->createAttribute('Id');
-        $att->value = $this->std->identificacaorps->numero; //.$this->std->identificacaorps->serie;
+        $att->value = $this->std->identificacaorps->numero;
         $innerRPS->appendChild($att);
         
         $this->addIdentificacao($innerRPS);
@@ -83,6 +100,7 @@ class Factory
         $infRps->appendChild($innerRPS);
         
         $this->addServico($infRps);
+        $this->addPrestador($infRps);
         $this->addTomador($infRps);
         $this->addIntermediario($infRps);
         $this->addConstrucao($infRps);
@@ -116,6 +134,40 @@ class Factory
             $node,
             "Tipo",
             $id->tipo,
+            true
+        );
+        $parent->appendChild($node);
+    }
+    
+    /**
+     * Includes prestador
+     * @param DOMNode $parent
+     * @return void
+     */
+    protected function addPrestador(&$parent)
+    {
+        if (!isset($this->config)) {
+            return;
+        }
+        $node = $this->dom->createElement('Prestador');
+        $cpfcnpj = $this->dom->createElement('CpfCnpj');
+        $this->dom->addChild(
+            $cpfcnpj,
+            "Cnpj",
+            !empty($this->config->cnpj) ? $this->config->cnpj : null,
+            false
+        );
+        $this->dom->addChild(
+            $cpfcnpj,
+            "Cpf",
+            !empty($this->config->cpf) ? $this->config->cpf : null,
+            false
+        );
+        $node->appendChild($cpfcnpj);
+        $this->dom->addChild(
+            $node,
+            "InscricaoMunicipal",
+            $this->config->im,
             true
         );
         $parent->appendChild($node);

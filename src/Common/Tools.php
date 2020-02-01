@@ -7,12 +7,12 @@ namespace NFePHP\NFSeAmtec\Common;
  *
  * @category  NFePHP
  * @package   NFePHP\NFSeAmtec
- * @copyright NFePHP Copyright (c) 2008-2018
+ * @copyright NFePHP Copyright (c) 2020
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
  * @license   https://opensource.org/licenses/MIT MIT
  * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
  * @author    Roberto L. Machado <linux.rlm at gmail dot com>
- * @link      http://github.com/nfephp-org/sped-nfse-nacional for the canonical source repository
+ * @link      http://github.com/nfephp-org/sped-nfse-amtec for the canonical source repository
  */
 
 use NFePHP\Common\Certificate;
@@ -32,18 +32,7 @@ class Tools
     protected $wsobj;
     protected $soap;
     protected $environment;
-    
-    protected $urls = [
-        '5208707' => [
-            'municipio' => 'Goiania',
-            'uf' => 'GO',
-            'homologacao' => 'https://nfse.goiania.go.gov.br/ws/nfse.asmx',
-            'producao' => 'https://nfse.goiania.go.gov.br/ws/nfse.asmx',
-            'version' => '2.00',
-            'msgns' => 'http://nfse.goiania.go.gov.br/xsd/nfse_gyn_v02.xsd',
-            'soapns' => 'http://nfse.goiania.go.gov.br/ws/'
-        ]
-    ];
+        
     
     /**
      * Constructor
@@ -55,15 +44,27 @@ class Tools
         $this->config = \Safe\json_decode($config);
         $this->certificate = $cert;
         $this->buildPrestadorTag();
-        $wsobj = $this->urls;
-        if (empty($this->urls[$this->config->cmun])) {
-            throw new \Exception('Apenas Goiania é aceito. cMun=5208707');
-        }
-        $this->wsobj = \Safe\json_decode(\Safe\json_encode($this->urls[$this->config->cmun]));
+        $this->wsobj = $this->loadWsobj($this->config->cmun);
         $this->environment = 'producao';
         if ($this->config->tpamb === 1) {
             $this->environment = 'producao';
         }
+    }
+    
+    /**
+     * load webservice parameters
+     * @param string $cmun
+     * @return object
+     * @throws \Exception
+     */
+    protected function loadWsobj($cmun)
+    {
+        $path = realpath(__DIR__ . "/../../storage/urls_webservices.json");
+        $urls = json_decode(file_get_contents($path), true);
+        if (empty($urls[$cmun])) {
+            throw new \Exception("Não localizado parâmetros para esse municipio.");
+        }
+        return (object) $urls[$cmun];
     }
     
     /**

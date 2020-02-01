@@ -30,7 +30,7 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $numero = 123456;
+    $numero = 12;
     $serie = 'A';
     $tipo = 1;
 
