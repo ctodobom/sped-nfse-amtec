@@ -45,8 +45,8 @@
     },
     "scripts": {
         "test": "phpunit -c phpunit.xml.dist",
-        "phpcbf": "vendor/bin/phpcbf --standard=psr2 src; vendor/bin/phpcbf --standard=psr2 tests",
-        "phpcs": "vendor/bin/phpcs --standard=psr2 src; vendor/bin/phpcs --standard=psr2 tests",
+        "phpcbf": "vendor/bin/phpcbf --standard=psr2 src",
+        "phpcs": "vendor/bin/phpcs --standard=psr2 src",
         "phpstan": "vendor/bin/phpstan analyse src/ --level 7",
         "rector": "vendor/bin/rector process src/ --config vendor/thecodingmachine/safe/rector-migrate.yml"
     },

@@ -53,6 +53,7 @@ class Tools extends BaseTools
             . "</{$operation}Envio>";
         
         Validator::isValid($content, $this->xsdpath);
+        file_put_contents("/var/www/sped/sped-nfse-amtec/local/fixtures/{$operation}.xml", $content);
         return $this->send($content, $operation);
     }
     
@@ -71,6 +72,7 @@ class Tools extends BaseTools
             . $xmlsigned
             . "</GerarNfseEnvio>";
         Validator::isValid($content, $this->xsdpath);
+        file_put_contents("/var/www/sped/sped-nfse-amtec/local/fixtures/{$operation}.xml", $content);
         return $this->send($content, $operation);
     }
     
